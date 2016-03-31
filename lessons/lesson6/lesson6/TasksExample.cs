@@ -57,6 +57,7 @@ namespace lesson6
         {
             return Task.Run(() =>
             {
+                WriteLine($"checking prime number: {x}");
                 for (var i = 2; i < x - 1; i++)
                 {
                     ct.ThrowIfCancellationRequested();
@@ -72,6 +73,7 @@ namespace lesson6
             {
                 ct.ThrowIfCancellationRequested();
                 if (await IsPrime(i, ct)) WriteLine($"prime number: {i}");
+                WriteLine($"task for prime number: {i} started");
             }
         }
     }
